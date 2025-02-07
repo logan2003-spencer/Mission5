@@ -1,0 +1,101 @@
+﻿@{
+    ViewData["Title"] = "Ski Tutoring";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="font-weight: bold">@ViewData["Title"]</title>
+
+    <!-- Internal CSS for layout and centering -->
+    <style>
+        /* This styles the entire page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+
+            /* Add background image */
+            background-image: url('/skibackround.png'); /* Path to your image */
+            background-size: cover; /* Ensures the image covers the entire page */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            height: 100vh; /* Ensures the body takes up the full height of the viewport */
+        }
+
+        /* Style for the header (you can leave it as it is) */
+        header {
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* The container that will center everything else */
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            width: 100%;
+            max-width: 600px;
+            margin-left: 345px; /* Move the body content slightly to the right */
+            background-color: rgba(255, 255, 255, 0.8); /* Optional: add a semi-transparent background to improve text visibility */
+            border-radius: 10px; /* Optional: add rounded corners */
+        }
+
+        /* Style for form elements and buttons */
+        input[type="number"], button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        /* Style the error message */
+        #error-message {
+            margin-top: 10px;
+        }
+
+        /* Style for the total cost */
+        h3 {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Centered Content -->
+<div class="content-container">
+    <h1 style="font-weight: bold">@ViewData["Title"]</h1>
+
+    <div>
+        <label for="hours">Hours of Tutoring:</label>
+        <input type="number" id="hours" min="1" value="1">
+    </div>
+    <p id="error-message" style="color: red; display: none;">Please enter a valid number</p> <!-- Error message -->
+
+    <div>
+        <label>Hourly Rate ($):</label>
+        <span id="rate">75</span>
+    </div>
+
+    <button id="calculate">Calculate</button>
+
+    <h3>Total Cost: $<span id="total">0</span></h3>
+</div>
+
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Link to external JS file -->
+<script src="~/js/calculator.js"></script>
+
+</body>
+</html>
